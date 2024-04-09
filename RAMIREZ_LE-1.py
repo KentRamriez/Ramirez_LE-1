@@ -1,9 +1,9 @@
 import random
 import sys
 
-totWinning_amountC = 100_000
-totWinning_amountM = 500_000
-totWinning_amountE = 1_000_000 
+totWinning_amountC = 750_000
+totWinning_amountM = 3_000_000
+totWinning_amountE = 15_000_000 
 
 num_choice = ""
 color_choice = ""
