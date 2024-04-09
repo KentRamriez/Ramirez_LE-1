@@ -12,13 +12,15 @@ assets = {
     "total_winnings" : 20_000, 
 }
 
-def check_winning_condition(difficulty_level):
+def check_winning_condition():
+    global diff_choice
     target_winnings = 0
-    if difficulty_level == 'C':
+
+    if diff_choice == 'C':
         target_winnings = totWinning_amountC
-    elif difficulty_level == 'M':
+    elif diff_choice == 'M':
         target_winnings = totWinning_amountM
-    elif difficulty_level == 'E':
+    elif diff_choice == 'E':
         target_winnings = totWinning_amountE
     
     if assets["total_winnings"] >= target_winnings:
@@ -204,9 +206,9 @@ def dice_roll():
             
     calc_payout()
 
-    check_winning_condition(difficulty)
+    check_winning_condition()
 
-    check_game_over(difficulty)
+    check_game_over()
 
     def continue_playing():
         play_again = input("Would you like to play again? (y or n): ").lower()
@@ -341,9 +343,9 @@ def blackjack():
         assets["total_winnings"] += (bet * 1.5)
         print(f"Your current total winnings is {assets['total_winnings']:,}")
 
-    check_winning_condition(difficulty)
+    check_winning_condition()
 
-    check_game_over(difficulty)
+    check_game_over()
 
     def continue_playing():
         play_again = input("Would you like to play again? (y or n): ").lower()
@@ -503,11 +505,11 @@ def roulette():
             assets["total_winnings"] -= bet
             print(f"\nYou have lost the money you had bet. You now have ${assets['total_winnings']:,}.")
 
-    check_winning_condition(difficulty)
-
-    check_game_over(difficulty)
-
     roll_roulette()
+
+    check_winning_condition()
+
+    check_game_over()
 
     def continue_playing():
         play_again = input("Would you like to play again? (y or n): ").lower()
@@ -529,6 +531,7 @@ def roulette():
     continue_playing()
 
 def difficulty():
+    global diff_choice
     print("\n--------------------------------------------------------------")
     print("~---+---~ Welcome to your gambling addiction ~---+---~")
     print("Please select how addicted you are to gambling (C, M, E): ")
